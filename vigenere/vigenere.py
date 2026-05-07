@@ -1,3 +1,9 @@
+def encrypt(text, key):
+    return vigenere_cipher(text, key, "encrypt")
+
+
+def decrypt(text, key):
+    return vigenere_cipher(text, key, "decrypt")
 
 def vigenere_cipher(text, key, operation):
     result = ""
@@ -18,4 +24,10 @@ def vigenere_cipher(text, key, operation):
             if operation == "decrypt":
                 shift = -shift
 
-         
+            new_char = chr((ord(char) - start + shift) % 26 + start)
+            result += new_char
+            key_index += 1
+        else:
+            result += char
+
+    return result
