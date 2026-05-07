@@ -1,2 +1,3 @@
 def shift_text(text, key):
-    pass
+  result = ""
+  key = key % 26
