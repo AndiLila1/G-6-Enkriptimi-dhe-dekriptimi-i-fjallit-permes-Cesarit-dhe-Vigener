@@ -7,4 +7,15 @@ def vigenere_cipher(text, key, operation):
 
     key_index = 0
 
-    
+    for char in text:
+        if char.isalpha():
+            if char.isupper():
+                start = ord("A")
+            else:
+                start = ord("a")
+
+            shift = ord(key[key_index % len(key)]) - ord("a")
+            if operation == "decrypt":
+                shift = -shift
+
+         
