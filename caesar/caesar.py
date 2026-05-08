@@ -4,6 +4,9 @@ def shift_text(text, key):
   
   for char in text:
        if char.isalpha():
-            pass
+            if char.isupper():
+                start = ord("A")
+            else:
+                start = ord("a")
         else:
             result += char
