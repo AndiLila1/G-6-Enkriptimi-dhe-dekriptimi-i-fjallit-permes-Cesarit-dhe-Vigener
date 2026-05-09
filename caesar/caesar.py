@@ -1,6 +1,8 @@
 def encrypt(text, key):
   return shift_text(text, key)
 
+def decrypt(text, key):
+  return shift_text(text, -key)
 
 def shift_text(text, key):
   result = ""
@@ -16,3 +18,4 @@ def shift_text(text, key):
             result += new_char
         else:
             result += char
+return result
