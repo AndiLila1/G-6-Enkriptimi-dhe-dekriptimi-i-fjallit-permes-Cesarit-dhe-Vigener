@@ -80,3 +80,27 @@ def start_process():
 
     if key is None:
         return
+        
+    try:
+        with open(input_path, "r", encoding="utf-8") as file:
+            file_content = file.read()
+
+        if algorithm_choice.get() == "Caesar Cipher":
+            if operation_choice.get() == "Encrypt":
+                result = caesar.encrypt(file_content, key)
+            else:
+                result = caesar.decrypt(file_content, key)
+        else:
+            if operation_choice.get() == "Encrypt":
+                result = vigenere.encrypt(file_content, key)
+            else:
+                result = vigenere.decrypt(file_content, key)
+
+        with open(output_path, "w", encoding="utf-8") as file:
+            file.write(result)
+
+        messagebox.showinfo("Success", "File processed and saved successfully.")
+    except FileNotFoundError:
+        messagebox.showerror("Error", "Input file was not found.")
+    except OSError as error:
+        messagebox.showerror("Error", f"File error: {error}")
