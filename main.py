@@ -64,3 +64,19 @@ def validate_key():
         return None
 
     return key
+
+def start_process():
+    input_path = input_file_entry.get().strip()
+    output_path = output_file_entry.get().strip()
+    key = validate_key()
+
+    if not input_path:
+        messagebox.showerror("Error", "Please select an input file.")
+        return
+
+    if not output_path:
+        messagebox.showerror("Error", "Please choose an output file path.")
+        return
+
+    if key is None:
+        return
