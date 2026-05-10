@@ -65,6 +65,7 @@ def validate_key():
 
     return key
 
+
 def start_process():
     input_path = input_file_entry.get().strip()
     output_path = output_file_entry.get().strip()
@@ -80,7 +81,7 @@ def start_process():
 
     if key is None:
         return
-        
+
     try:
         with open(input_path, "r", encoding="utf-8") as file:
             file_content = file.read()
@@ -104,6 +105,7 @@ def start_process():
         messagebox.showerror("Error", "Input file was not found.")
     except OSError as error:
         messagebox.showerror("Error", f"File error: {error}")
+
 
 root = tk.Tk()
 root.title("File Encryption and Decryption using Caesar and Vigenere Algorithms")
@@ -142,4 +144,23 @@ tk.Label(main_frame, text="Key:", font=("Arial", 11), bg="#f4f6f8").grid(row=5, 
 key_entry = tk.Entry(main_frame, width=35, font=("Arial", 11))
 key_entry.grid(row=5, column=1, sticky="w", pady=3)
 
-    
+tk.Label(main_frame, text="Input file path:", font=("Arial", 11), bg="#f4f6f8").grid(row=6, column=0, sticky="w", pady=(15, 3))
+input_file_entry = tk.Entry(main_frame, width=55, font=("Arial", 10))
+input_file_entry.grid(row=6, column=1, pady=(15, 3))
+tk.Button(main_frame, text="Browse", width=12, command=browse_input_file).grid(row=6, column=2, padx=8, pady=(15, 3))
+
+tk.Label(main_frame, text="Output file path:", font=("Arial", 11), bg="#f4f6f8").grid(row=7, column=0, sticky="w", pady=3)
+output_file_entry = tk.Entry(main_frame, width=55, font=("Arial", 10))
+output_file_entry.grid(row=7, column=1, pady=3)
+tk.Button(main_frame, text="Choose", width=12, command=choose_output_file).grid(row=7, column=2, padx=8, pady=3)
+
+start_button = tk.Button(
+    main_frame,
+    text="Start Encryption / Decryption",
+    width=28,
+    font=("Arial", 11, "bold"),
+    command=start_process
+)
+start_button.grid(row=8, column=0, columnspan=3, pady=25)
+
+root.mainloop()
