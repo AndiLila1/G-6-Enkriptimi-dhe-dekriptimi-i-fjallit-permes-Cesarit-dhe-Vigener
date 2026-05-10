@@ -104,3 +104,23 @@ def start_process():
         messagebox.showerror("Error", "Input file was not found.")
     except OSError as error:
         messagebox.showerror("Error", f"File error: {error}")
+
+root = tk.Tk()
+root.title("File Encryption and Decryption using Caesar and Vigenere Algorithms")
+root.geometry("760x600")
+root.resizable(False, False)
+root.configure(bg="#f4f6f8")
+
+algorithm_choice = tk.StringVar(value="Caesar Cipher")
+operation_choice = tk.StringVar(value="Encrypt")
+
+title_label = tk.Label(
+    root,
+    text="File Encryption and Decryption",
+    font=("Arial", 18, "bold"),
+    bg="#f4f6f8"
+)
+title_label.pack(pady=15)
+
+main_frame = tk.Frame(root, bg="#f4f6f8")
+main_frame.pack(padx=25, fill="both")
