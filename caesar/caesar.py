@@ -16,6 +16,6 @@ def shift_text(text, key):
                 start = ord("a")
             new_char = chr((ord(char) - start + key) % 26 + start)
             result += new_char
-        else:
+       else:
             result += char
-return result
+  return result
