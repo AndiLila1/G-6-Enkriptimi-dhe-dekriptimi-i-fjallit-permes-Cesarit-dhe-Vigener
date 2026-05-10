@@ -124,3 +124,22 @@ title_label.pack(pady=15)
 
 main_frame = tk.Frame(root, bg="#f4f6f8")
 main_frame.pack(padx=25, fill="both")
+
+tk.Label(main_frame, text="Write a message:", font=("Arial", 11), bg="#f4f6f8").grid(row=0, column=0, sticky="w")
+message_text = tk.Text(main_frame, width=75, height=6, font=("Arial", 11))
+message_text.grid(row=1, column=0, columnspan=3, pady=5)
+
+save_message_button = tk.Button(main_frame, text="Save TextBox Message to File", width=25, command=save_message_to_file)
+save_message_button.grid(row=2, column=0, sticky="w", pady=8)
+
+tk.Label(main_frame, text="Encryption algorithm:", font=("Arial", 11), bg="#f4f6f8").grid(row=3, column=0, sticky="w", pady=(15, 3))
+tk.OptionMenu(main_frame, algorithm_choice, "Caesar Cipher", "Vigenere Cipher").grid(row=3, column=1, sticky="w", pady=(15, 3))
+
+tk.Label(main_frame, text="Operation:", font=("Arial", 11), bg="#f4f6f8").grid(row=4, column=0, sticky="w", pady=3)
+tk.OptionMenu(main_frame, operation_choice, "Encrypt", "Decrypt").grid(row=4, column=1, sticky="w", pady=3)
+
+tk.Label(main_frame, text="Key:", font=("Arial", 11), bg="#f4f6f8").grid(row=5, column=0, sticky="w", pady=3)
+key_entry = tk.Entry(main_frame, width=35, font=("Arial", 11))
+key_entry.grid(row=5, column=1, sticky="w", pady=3)
+
+
