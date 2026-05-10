@@ -142,4 +142,4 @@ tk.Label(main_frame, text="Key:", font=("Arial", 11), bg="#f4f6f8").grid(row=5, 
 key_entry = tk.Entry(main_frame, width=35, font=("Arial", 11))
 key_entry.grid(row=5, column=1, sticky="w", pady=3)
 
-
+    
